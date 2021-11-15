@@ -2,7 +2,7 @@ const Engineer = require("../lib/Engineer");
 
 describe("Engineer class", () => {
   describe("getGithub method", () => {
-    it("Retrieves an Engineers githubgit s", () => {
+    it("Retrieves an Engineers github", () => {
       const Bill = new Engineer("Bill", 32, "bill@email.com", "billgithub");
 
       expect(Bill.getGithub()).toEqual("billgithub");
