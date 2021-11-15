@@ -100,10 +100,14 @@ function init(questions) {
     } else if (response.teamMember === "Intern") {
       return init(internQs);
     } else {
-      html = generateHTML();
-      return writeToFile();
+      html = generateHTML.generateHTML(employees);
+      return writeToFile(html);
     }
   });
+}
+
+function writeToFile(html) {
+  console.log("bananas");
 }
 
 function createEmployee(response) {
@@ -113,7 +117,7 @@ function createEmployee(response) {
         response.name,
         response.id,
         response.email,
-        response.officenumber
+        response.officeNumber
       )
     );
   } else if (response.github) {
