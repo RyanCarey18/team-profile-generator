@@ -2,6 +2,8 @@ const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
+const generateHTML = require("./src/generateHTML");
+const fs = require("fs");
 const employees = [];
 
 const managerQs = [
@@ -97,7 +99,10 @@ function init(questions) {
       return init(engineerQs);
     } else if (response.teamMember === "Intern") {
       return init(internQs);
-    } else generateHTML();
+    } else {
+      html = generateHTML();
+      return writeToFile();
+    }
   });
 }
 
