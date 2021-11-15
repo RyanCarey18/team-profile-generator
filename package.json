@@ -1,0 +1,26 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "Create an HTML page with inquirer prompts",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyanCarey18/team-profile-generator.git"
+  },
+  "author": "Ryan Carey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RyanCarey18/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/RyanCarey18/team-profile-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0",
+    "jest": "^27.3.1"
+  }
+}
