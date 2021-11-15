@@ -2,7 +2,8 @@ const Engineer = require("../lib/Engineer");
 const Manager = require("../lib/Manager");
 const Intern = require("../lib/Intern");
 
-function generateHTML(employees) {
+//generates an HTML
+function generateHTML() {
   return `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,7 +26,7 @@ function generateHTML(employees) {
     </header>
     <div class="container">
       <div class="row my-row">
-      ${generateCard(employees)}
+      ${cards}
       </div>
     </div>
 
@@ -37,9 +38,11 @@ function generateHTML(employees) {
   </body>
 </html>`;
 }
+
 function generateCard(employees) {
+  let card = "";
   employees.forEach((employee) => {
-    return `<div class="card col-3 my-card">
+    newCard = `<div class="card col-3 my-card">
 <div class="card-body">
   <h3 class="card-title">${employee.name}</h3>
   <h2 class="card-text">${employee.getRole()}</h2>
@@ -50,7 +53,10 @@ function generateCard(employees) {
   <li class="list-group-item">${generateItem(employee)}</li>
 </ul>
 </div>`;
+    card = card.concat(newCard);
+    return;
   });
+  return card;
 }
 
 function generateItem(employee) {

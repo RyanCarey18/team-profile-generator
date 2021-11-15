@@ -100,14 +100,17 @@ function init(questions) {
     } else if (response.teamMember === "Intern") {
       return init(internQs);
     } else {
-      html = generateHTML.generateHTML(employees);
-      return writeToFile(html);
+      cards = generateHTML.generateCard();
+      html = generateHTML.generateHTML(cards);
+      return writeToFile("./dist/index.html", html);
     }
   });
 }
 
-function writeToFile(html) {
-  console.log("bananas");
+function writeToFile(fileName, html) {
+  fs.writeFile(fileName, html, (err) =>
+    err ? console.error(err) : console.log("TeamPage created!")
+  );
 }
 
 function createEmployee(response) {
