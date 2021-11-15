@@ -1,0 +1,14 @@
+header {
+  text-align: center;
+  background-image: linear-gradient(to right, red, blue);
+  color: black;
+  padding: 10px 0;
+  font-weight: 10;
+}
+
+.my-row {
+  justify-content: center;
+}
+.my-card {
+  margin: 15px;
+}
