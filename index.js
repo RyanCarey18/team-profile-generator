@@ -3,38 +3,7 @@ const Manager = require("./lib/manager");
 const Intern = require("./lib/intern");
 const inquirer = require("inquirer");
 const employees = [];
-// let q4name = "officeNumber";
-// let employeeType = "manager";
-// let q4message = "office number";
 
-// const questions = [
-//   {
-//     type: "input",
-//     message: `What is the ${employeeType}'s name?`,
-//     name: "name",
-//   },
-//   {
-//     type: "input",
-//     message: `What is the ${employeeType}'s ID?`,
-//     name: "id",
-//   },
-//   {
-//     type: "input",
-//     message: `What is the ${employeeType}'s Email address?`,
-//     name: "email",
-//   },
-//   {
-//     type: "input",
-//     message: `What is the ${employeeType}'s ${q4message}?`,
-//     name: q4name,
-//   },
-//   {
-//     type: "list",
-//     message: "Would you like to add another team member?",
-//     name: "teamMember",
-//     choices: ["Engineer", "Intern", "No"],
-//   },
-// ];
 const managerQs = [
   {
     type: "input",
@@ -128,7 +97,7 @@ function init(questions) {
       return init(engineerQs);
     } else if (response.teamMember === "Intern") {
       return init(internQs);
-    } else return;
+    } else generateHTML();
   });
 }
 
@@ -150,24 +119,42 @@ function createEmployee(response) {
     employees.push(
       new Intern(response.name, response.id, response.email, response.school)
     );
+  } else {
+    return;
   }
 }
-// function init(questions) {
-//   inquirer.prompt(questions).then((response) => {
-//     console.log(response);
-//     if (response.teamMember === "Engineer") {
-//       q4name = "github";
-//       q4message = "github";
-//       employeeType = "engineer";
-//       init();
-//       return;
-//     } else if (response.teamMember === "Intern") {
-//       q4name = "school";
-//       q4message = "school";
-//       employeeType = "intern";
-//       return init();
-//     } else return;
-//   });
-//}
+
+// let q4name = "officeNumber";
+// let employeeType = "manager";
+// let q4message = "office number";
+
+// const questions = [
+//   {
+//     type: "input",
+//     message: `What is the ${employeeType}'s name?`,
+//     name: "name",
+//   },
+//   {
+//     type: "input",
+//     message: `What is the ${employeeType}'s ID?`,
+//     name: "id",
+//   },
+//   {
+//     type: "input",
+//     message: `What is the ${employeeType}'s Email address?`,
+//     name: "email",
+//   },
+//   {
+//     type: "input",
+//     message: `What is the ${employeeType}'s ${q4message}?`,
+//     name: q4name,
+//   },
+//   {
+//     type: "list",
+//     message: "Would you like to add another team member?",
+//     name: "teamMember",
+//     choices: ["Engineer", "Intern", "No"],
+//   },
+// ];
 
 init(managerQs);
