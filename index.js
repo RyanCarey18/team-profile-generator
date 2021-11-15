@@ -1,5 +1,8 @@
-const Employee = require("./lib/employee");
+const Engineer = require("./lib/engineer");
+const Manager = require("./lib/manager");
+const Intern = require("./lib/intern");
 const inquirer = require("inquirer");
+const employees = [];
 // let q4name = "officeNumber";
 // let employeeType = "manager";
 // let q4message = "office number";
@@ -120,13 +123,34 @@ const internQs = [
 
 function init(questions) {
   inquirer.prompt(questions).then((response) => {
-    console.log(response);
+    createEmployee(response);
     if (response.teamMember === "Engineer") {
       return init(engineerQs);
     } else if (response.teamMember === "Intern") {
       return init(internQs);
     } else return;
   });
+}
+
+function createEmployee(response) {
+  if (response.officeNumber) {
+    employees.push(
+      new Manager(
+        response.name,
+        response.id,
+        response.email,
+        response.officenumber
+      )
+    );
+  } else if (response.github) {
+    employees.push(
+      new Engineer(response.name, response.id, response.email, response.github)
+    );
+  } else if (response.school) {
+    employees.push(
+      new Intern(response.name, response.id, response.email, response.school)
+    );
+  }
 }
 // function init(questions) {
 //   inquirer.prompt(questions).then((response) => {
