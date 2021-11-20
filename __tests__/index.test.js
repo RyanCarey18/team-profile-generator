@@ -1,18 +1,5 @@
 const index = require("../index");
 
-// describe("writeToFile", () => {
-//   it("should call fs.writeFile with the passed in 'path' and 'data' arguments", (done) => {
-//     const message = "Hello World!";
-//     const file = "message.txt";
-//     const mock = jest.spyOn(console, "log");
-//     mock.mockImplementation(() => {});
-//     index.writeToFile(file, message);
-
-//     expect(fs.writeFile).lastCalledWith(file, message);
-//     done();
-//   });
-// });
-
 describe("quetionfunc", () => {
   it("Should return array of questions", () => {
     questions = index.questionFunc();
@@ -22,7 +9,6 @@ describe("quetionfunc", () => {
         expect.objectContaining({ name: "id" }),
         expect.objectContaining({ name: "email" }),
         expect.objectContaining({ name: "teamMember" }),
-        //expect.objectContaining({ name: "manager" || "engineer" || "intern" }),
       ])
     );
   });

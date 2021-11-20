@@ -4,16 +4,6 @@ const Intern = require("../lib/Intern");
 const Manager = require("../lib/Manager");
 const generateHTML = require("../src/generateHTML");
 
-// describe("generateCard", () => {
-//   describe("concat ", () => {
-//     it("Retrieves an Managers role", () => {
-//       const Bill = new Manager("Bill", 32, "bill@email.com", 55);
-
-//       expect(Bill.getRole()).toEqual("Manager");
-//     });
-//   });
-// });
-
 describe("generateItem function", () => {
   it("Retrieves an office number", () => {
     const Bill = new Manager("Bill", 32, "bill@email.com", 55);
@@ -32,20 +22,15 @@ describe("generateItem function", () => {
 
     expect(generateHTML.generateItem(Bill)).toEqual("School: UNH");
   });
-  //   it("Retrieves nothing", () => {
-  //     const Bill = new Employee("Bill", 32, "Bill@email.com");
-  //     expect(generateHTML.generateItem()).toBeUndefined();
-  //   });
 });
 
 describe("generateHTML", () => {
-  describe("", () => {
-    it("Outputs correct HTML", () => {
-      employees = [];
-      employees.push(new Manager("Bill", 1, "bill@bill.com", 50));
+  it("Outputs correct HTML", () => {
+    employees = [];
+    employees.push(new Manager("Bill", 1, "bill@bill.com", 50));
 
-      expect(generateHTML.generateHTML(employees)).toMatch("<!DOCTYPE html>");
-      expect(generateHTML.generateHTML(employees)).toEqual(`<!DOCTYPE html>
+    expect(generateHTML.generateHTML(employees)).toMatch("<!DOCTYPE html>");
+    expect(generateHTML.generateHTML(employees)).toEqual(`<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -78,9 +63,5 @@ describe("generateHTML", () => {
     ></script>
   </body>
 </html>`);
-    });
-    // it("throws an error without an input", () => {
-    //   expect(generateHTML.generateHTML()).toThrow();
-    // });
   });
 });
