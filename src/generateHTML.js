@@ -2,8 +2,8 @@ const Engineer = require("../lib/Engineer");
 const Manager = require("../lib/Manager");
 const Intern = require("../lib/Intern");
 
-//generates an HTML
-function generateHTML() {
+//generates an HTML for the team page
+function generateHTML(employees) {
   return `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,7 +26,7 @@ function generateHTML() {
     </header>
     <div class="container">
       <div class="row my-row">
-      ${cards}
+      ${generateCard(employees)}
       </div>
     </div>
 
@@ -39,17 +39,22 @@ function generateHTML() {
 </html>`;
 }
 
+//Creates an HTML card for each employee
 function generateCard(employees) {
+  //the string in which each set of html is added to
   let card = "";
+  //Creates the HTMl for each employee in the employees array and adds it to the card variable
   employees.forEach((employee) => {
-    newCard = `<div class="card col-3 my-card">
-<div class="card-body">
-  <h3 class="card-title">${employee.name}</h3>
-  <h2 class="card-text">${employee.getRole()}</h2>
+    newCard = `<div class="card col-3 ${employee.getRole()}-card">
+<div class="card-body ${employee.getRole()}-top">
+  <h3 class="card-title">${employee.getName()}</h3>
+  <h5 class="card-text">${employee.getRole()}</h5>
 </div>
 <ul class="list-group list-group-flush">
-  <li class="list-group-item">Employee Number: ${employee.id}</li>
-  <li class="list-group-item">Email: ${employee.email}</li>
+  <li class="list-group-item">Employee Number: ${employee.getId()}</li>
+  <li class="list-group-item">Email: <a href = "mailto: ${employee.getEmail()}">${
+      employee.email
+    }</a></li>
   <li class="list-group-item">${generateItem(employee)}</li>
 </ul>
 </div>`;
@@ -59,19 +64,26 @@ function generateCard(employees) {
   return card;
 }
 
+//checks what type of employee to change html accordingly
 function generateItem(employee) {
+  //checks to see if theyre a manager
   if (employee.officeNumber) {
     return `Office Number: ${employee.officeNumber}`;
+    //checks to see if theyre an engineer
   } else if (employee.github) {
-    return `Github: ${employee.github}`;
+    return `Github: <a href="https://github.com/${employee.getGithub()}" target="blank">${employee.getGithub()}</a>`;
+    //checks to see if theyre a student
   } else if (employee.school) {
-    return `School ${employee.school}`;
+    return `School: ${employee.getSchool()}`;
+    //if they do not have an employee type then it console logs telling you.
   } else {
-    return;
+    return console.log("Missing employee type");
   }
 }
 
+//exports these functions
 module.exports = {
   generateHTML,
   generateCard,
+  generateItem,
 };

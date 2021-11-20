@@ -1,3 +1,9 @@
+:root {
+  --manager-color: rgb(36, 36, 184);
+  --engineer-color: rgb(105, 26, 158);
+  --intern-color: rgb(207, 3, 3);
+}
+
 header {
   text-align: center;
   background-image: linear-gradient(to right, red, blue);
@@ -9,6 +15,38 @@ header {
 .my-row {
   justify-content: center;
 }
-.my-card {
+.Manager-card {
   margin: 15px;
+  box-shadow: 10px 10px 5px grey;
+  outline: 2px solid var(--manager-color);
+}
+.Engineer-card {
+  margin: 15px;
+  box-shadow: 10px 10px 5px grey;
+  outline: 2px solid var(--engineer-color);
+}
+.Intern-card {
+  margin: 15px;
+  box-shadow: 10px 10px 5px grey;
+  outline: 2px solid var(--intern-color);
+}
+.Engineer-top {
+  background-color: var(--engineer-color);
+  color: white;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.Intern-top {
+  background-color: var(--intern-color);
+  color: white;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.Manager-top {
+  background-color: var(--manager-color);
+  color: white;
+  margin-top: 10px;
+  border-radius: 5px;
 }
